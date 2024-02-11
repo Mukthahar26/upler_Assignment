@@ -9,7 +9,7 @@ const styles = ScaledSheet.create({
     zIndex: -1,
   },
   container: {
-    flex: 1,
+    //flex: 1,
   },
   padding16: {
     padding: measureValues.size16,

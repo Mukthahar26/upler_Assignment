@@ -12,4 +12,11 @@ export const flightImagesList = [
   'https://images.unsplash.com/photo-1576664947263-b2fcb05fe823?q=80&w=2821&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 ];
 
+export enum sortingEnums {
+  NORMAL,
+  LOWTOHIGHT,
+  HIGHTOLOW,
+}
+
 export const REUPEES_SYMBOL = '₹';
+export const FLIGHT_ICON_URI = require('../assets/icons/flightIcon.png');

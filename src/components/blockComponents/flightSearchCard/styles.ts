@@ -11,12 +11,11 @@ export default StyleSheet.create({
   image: {
     height: scale(150),
     resizeMode: 'contain',
-    borderRadius: 8,
-    margin: measureValues.size10,
+    borderRadius: scale(4),
     marginTop: 0,
   },
   details: {
-    padding: measureValues.size10,
+    paddingTop: measureValues.size10,
   },
   padding3: {
     paddingTop: scale(3),
@@ -34,7 +33,6 @@ export default StyleSheet.create({
     marginTop: measureValues.size10,
   },
   button: {
-    marginLeft: scale(10),
-    marginRight: scale(10),
+    marginTop: measureValues.size16,
   },
 });

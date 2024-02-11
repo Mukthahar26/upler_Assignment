@@ -9,9 +9,10 @@ type Props = {
   multiline?: boolean;
   style?: ViewStyle;
   inputStyle?: TextStyle;
-  keyboardType?: 'numeric' | 'default';
+  keyboardType?: 'numeric' | 'default' | 'phone-pad';
   autoFocus?: boolean;
   value?: string;
+  limit?: number;
 };
 const AppInput = ({
   onChangeText,
@@ -22,6 +23,7 @@ const AppInput = ({
   keyboardType,
   autoFocus,
   value,
+  limit,
 }: Props) => {
   return (
     <View style={[styles.inputView, style]}>
@@ -32,6 +34,7 @@ const AppInput = ({
         placeholder={placeholder}
         placeholderTextColor={colorThemes.placeHolderBlueTextColor}
         multiline={multiline}
+        maxLength={limit}
         onChangeText={e => onChangeText(e)}
         style={[styles.textField, inputStyle]}
       />

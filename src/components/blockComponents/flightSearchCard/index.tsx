@@ -2,19 +2,19 @@ import React from 'react';
 import {View} from 'react-native';
 import styles from './styles';
 import {FlightItemType} from '../../../redux/slicers/searchedFlightSlice';
-import FastImage from 'react-native-fast-image';
 import Card from '../../baseComponents/card';
 import {REUPEES_SYMBOL, flightImagesList} from '../../../constants/constants';
 import AppText from '../../baseComponents/AppText';
-import {formatDateTime} from '../../../utilities/utils';
+import {formatDateTime, randomNumber} from '../../../utilities/utils';
 import AppButtonCenterText from '../../baseComponents/appButtonCenterText';
+import ImageViewer from '../../baseComponents/imageViewer';
 
 type Props = {
   item: FlightItemType;
   onPress: (item: FlightItemType) => void;
 };
 const FlightSearchCard = ({item, onPress}: Props) => {
-  const {fare, displayData} = item;
+  const {fare, displayData, uri} = item;
   const {source, stopInfo, totalDuration} = displayData;
   const {
     airport: {airportName, cityName, countryName},
@@ -23,13 +23,7 @@ const FlightSearchCard = ({item, onPress}: Props) => {
 
   return (
     <Card style={styles.container}>
-      <FastImage
-        style={styles.image}
-        source={{
-          uri: flightImagesList[1],
-          priority: FastImage.priority.normal,
-        }}
-      />
+      <ImageViewer uri={uri as string} />
       <View style={styles.details}>
         <AppText
           style={styles.price}>{`INR ${REUPEES_SYMBOL} : ${fare}`}</AppText>
@@ -54,7 +48,7 @@ const FlightSearchCard = ({item, onPress}: Props) => {
       <AppButtonCenterText
         buttonStyle={styles.button}
         label="View Details"
-        onPress={() => onPress(item)}
+        onPress={() => onPress({...item, uri})}
       />
     </Card>
   );

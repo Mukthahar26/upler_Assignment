@@ -1,9 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {fetchSearchedFlights} from '../fetchCalls/fetchFlights';
+import {flightImagesList} from '../../constants/constants';
+import {randomNumber} from '../../utilities/utils';
 
 export type FlightItemType = {
   id: string;
   fare: number;
+  uri?: string;
   displayData: {
     source: {
       airport: {
@@ -67,7 +70,10 @@ const searchedFlightSlice = createSlice({
       })
       .addCase(fetchSearchedFlights.fulfilled, (state, action) => {
         state.searchedFlightLoading = false;
-        state.searchedFlight = action.payload;
+        state.searchedFlight = action.payload.map((item: any) => ({
+          ...item,
+          uri: flightImagesList[randomNumber()],
+        }));
         state.searchedFlightError = undefined;
       })
       .addCase(fetchSearchedFlights.rejected, (state, action) => {

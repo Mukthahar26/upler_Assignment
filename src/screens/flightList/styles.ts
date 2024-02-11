@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import measureValues from '../../themes/measureValues';
+import {scale} from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginBottom: 10,
     marginTop: 10,
-    borderRadius: 8,
+    borderRadius: scale(4),
   },
 });
 
