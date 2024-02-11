@@ -21,12 +21,10 @@ const Filters = ({
       <AppText style={styles.airlinesLabel}>AIRLINES</AppText>
       {checkList &&
         checkList.map(item => {
-          const {label, isChecked, count} = item;
           return (
             <CheckboxWithLabel
               style={styles.checkBox}
-              label={`${label} (${count})`}
-              isChecked={isChecked}
+              checkItem={item}
               onToggle={onChange}
             />
           );

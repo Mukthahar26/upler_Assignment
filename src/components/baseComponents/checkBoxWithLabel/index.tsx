@@ -5,23 +5,23 @@ import {checkList} from '../../blockComponents/filter/props';
 import styles from './styles';
 
 type Props = {
-  label: string;
-  isChecked: boolean;
+  checkItem: checkList;
   onToggle: (check: checkList) => void;
   style?: ViewStyle;
 };
 
 const CheckboxWithLabel = (props: Props) => {
-  const {label, isChecked, onToggle, style} = props;
+  const {checkItem, onToggle, style} = props;
+  const {count, isChecked, label} = checkItem;
   return (
     <CheckBox
       style={style}
       rightTextStyle={styles.rightText}
       checkedCheckBoxColor={colorThemes.brandColor}
       uncheckedCheckBoxColor={colorThemes.brandColor}
-      onClick={() => onToggle(props)}
+      onClick={() => onToggle(checkItem)}
       isChecked={isChecked}
-      rightText={label}
+      rightText={`${label} (${count})`}
     />
   );
 };
