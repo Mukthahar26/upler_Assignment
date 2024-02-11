@@ -34,9 +34,7 @@ const SearchedFlightDetails = ({data, error, onPress}: Props) => {
           data={data}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{
-            height: 300,
-          }}
+          keyExtractor={(_, index) => index.toString()}
         />
       ) : (
         <AppText>No Search result found. Please refind your filter</AppText>
